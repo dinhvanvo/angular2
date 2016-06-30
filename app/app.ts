@@ -6,6 +6,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     <h1>{{title}}</h1>
     <nav>
       <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
+      <a [routerLink]="['/animate']" routerLinkActive="active">Animate</a>
     </nav>
     <router-outlet></router-outlet>
   `,

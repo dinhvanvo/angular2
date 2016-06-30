@@ -17,7 +17,7 @@ var App = (function () {
     App = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a [routerLink]=\"['/home']\" routerLinkActive=\"active\">Home</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
+            template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a [routerLink]=\"['/home']\" routerLinkActive=\"active\">Home</a>\n      <a [routerLink]=\"['/animate']\" routerLinkActive=\"active\">Animate</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])

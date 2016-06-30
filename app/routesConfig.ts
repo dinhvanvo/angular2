@@ -1,5 +1,6 @@
 import {provideRouter, RouterConfig } from '@angular/router';
-import { HomeComponent } from './HomeComponent';
+import { HomeComponent } from './homeComponent';
+import { AnimateComponent } from './animateComponent'
 const routes: RouterConfig = [
     {
         path: '',
@@ -9,6 +10,10 @@ const routes: RouterConfig = [
     {
         path: 'home',
         component: HomeComponent
+    },
+    {
+        path: 'animate',
+        component: AnimateComponent
     },
 ]
 

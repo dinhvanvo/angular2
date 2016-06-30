@@ -1,0 +1,20 @@
+{{title}}
+<button (click)="moveLeft()">move left</button>
+<button (click)="moveRight()">move right</button>
+<hr />
+<div class="wrapper">
+    <div class="slide">
+        <ul>
+            <li *ngFor="let img of images" @carousel="currentIndex" >
+                <img src="{{img.url}}" alt="">
+            </li>
+        </ul>
+    </div>
+</div>
+
+<span [hidden]="!isShow">
+    show
+</span>
+<div [hidden]="isShow">
+    <span>hide</span>
+</div>
