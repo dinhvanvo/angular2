@@ -23,14 +23,4 @@ var HomeComponent = (function () {
     return HomeComponent;
 }());
 exports.HomeComponent = HomeComponent;
-// import { Component }       from '@angular/core';
-// @Component({
-//   selector: 'my-app',
-//   template: `
-//     <h1>{{title}}</h1>
-//   `,
-// })
-// export class App {
-//   title = 'Tour of Heroes';
-// } 
 //# sourceMappingURL=homeComponent.js.map

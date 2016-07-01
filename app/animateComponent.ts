@@ -1,61 +1,62 @@
 import { Component, animate, state, style, transition, trigger, keyframes } from '@angular/core';
+import { NgSwitchDefault, NgSwitch, NgSwitchCase } from '@angular/common';
 
 @Component({
+    selector: 'app-animate',
     animations: [trigger(
         'carousel',
         [
-            state('hide, void', style({ left: '-100%'})),
-            state('show', style({ left: 0})),
+            state('hide, void', style({ left: '-100%' })),
+            state('show', style({ left: 0 })),
+            state('right', style({ left: '100%' })),
             transition('show => hide', animate("5s", keyframes([
-                style({ left: "-20%", opacity: 1 }),
-                style({ left: "-40%", opacity: 0.8 }),
-                style({ left: "-60%", opacity: 0.6 }),
-                style({ left: "-80%", opacity: 0.4 }),
-                style({ left: "-100%", opacity: 0 }),
+                style({ left: "0" }),
+                style({ left: "-20%" }),
+                style({ left: "-40%" }),
+                style({ left: "-60%" }),
+                style({ left: "-80%" }),
+                style({ left: "-100%" }),
             ]))),
             transition('hide => show', animate("5s", keyframes([
-                style({ left: "-100%", opacity: 0.2 }),
-                style({ left: "-80%", opacity: 0.4 }),
-                style({ left: "-60%", opacity: 0.6 }),
-                style({ left: "-40%", opacity: 0.8 }),
-                style({ left: "0", opacity: 1 }),
+                style({ left: "100%" }),
+                style({ left: "80%" }),
+                style({ left: "60%" }),
+                style({ left: "40%" }),
+                style({ left: "20%" }),
+                style({ left: "0" }),
             ]))),
         ])],
-    templateUrl: 'app/views/animate.html'
+    templateUrl: 'app/views/animate.html',
+    directives: [NgSwitch, NgSwitchCase, NgSwitchDefault]
 })
 
 export class AnimateComponent {
-    public images = images;
+    public items = images;
     currentIndex: string = 'show';
-    isShow : boolean = true;
-    // currentIndex: number = 0;
+    value = 1;
+    moveLeft() {
+        this.currentIndex = 'hide';
+        if (this.value == this.items.length) {
+            this.value = 1;
+        } else {
+            this.value++;
+        }
+    };
+    moveRight() {
+        this.currentIndex = 'show';
+        if (this.value == this.items[0].id) {
+            this.value = this.items[this.items.length - 1].id;
+        } else {
+            this.value--;
+        }
 
-    // moveLeft() { this.currentIndex++ };
-    // moveRight() { this.currentIndex-- };
-
-    moveLeft() { this.currentIndex = 'hide' };
-    moveRight() { this.currentIndex = 'show' };
+    };
 }
 
 var images = [
     { id: 1, url: 'cards/images/1.png' },
-    {url : 'cards/images/2.png'},
-    {url : 'cards/images/3.png'},
-    {url : 'cards/images/4.png'},
-    {url : 'cards/images/5.png'},
-    {url : 'cards/images/6.png'},
-    {url : 'cards/images/7.png'},
-    {url : 'cards/images/8.png'},
-    {url : 'cards/images/9.png'},
-    {url : 'cards/images/10.png'},
-    {url : 'cards/images/11.png'},
-    {url : 'cards/images/12.png'},
-    {url : 'cards/images/13.png'},
-    {url : 'cards/images/14.png'},
-    {url : 'cards/images/15.png'},
-    {url : 'cards/images/16.png'},
-    {url : 'cards/images/17.png'},
-    {url : 'cards/images/18.png'},
-    {url : 'cards/images/19.png'},
-    {url : 'cards/images/20.png'},
+    { id: 2, url: 'cards/images/2.png' },
+    { id: 3, url: 'cards/images/3.png' },
+    { id: 4, url: 'cards/images/4.png' },
+    { id: 5, url: 'cards/images/5.png' },
 ]
